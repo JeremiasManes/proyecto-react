@@ -4,11 +4,16 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import Counter from './components/Counter/Counter';
 
 function App() {
+
+  const handleonAdd = () => {
+    alert("Se agrego al carrito")
+  }
+
   return (
     <div className="App">
       <Navbar />
-      <ItemListContainer greeting='Bienvenidos'/>
-      <Counter />
+      <ItemListContainer greeting='Bienvenidos' />
+      <Counter stock={5} onAdd={handleonAdd} />
     </div>
   );
 }
