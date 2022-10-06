@@ -2,8 +2,8 @@ import './Navbar.css'
 import CartWidget from '../CartWidget/CartWidget'
 
 
-const Navbar = () =>{
-    return(
+const Navbar = () => {
+    return (
         <nav className='nav'>
             <h1 className='marca'>ICHIRO</h1>
             <div className='categorias'>
