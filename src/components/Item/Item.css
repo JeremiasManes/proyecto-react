@@ -1,0 +1,29 @@
+.cartproduct {
+    border-radius: 10px;
+    border-color: black;
+    border-width: 5px;
+    border-style: solid;
+    cursor: pointer;
+    color: grey;
+}
+
+.cartproduct:hover{
+    transform: scale(1.05);
+    color: black;
+    box-shadow: 10px 5px 10px black;
+    border-radius: 15px;
+}
+
+.textproduct {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+}
+
+.margintext {
+    margin: 0;
+}

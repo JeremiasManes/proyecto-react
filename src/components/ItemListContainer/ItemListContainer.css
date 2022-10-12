@@ -1,5 +1,6 @@
-.saludo{
+.titleproducts {
+    font-size: 4rem;
     text-decoration: underline;
-    text-decoration-line: 2px;
-    text-underline-offset: 5px;
+    text-decoration-thickness: 7px;
+    text-underline-offset: 10px;
 }

@@ -1,10 +1,14 @@
+import './Item.css'
+
 const Item = ({ img, name, category, price }) => {
     return (
-        <div>
+        <div className="cartproduct">
             <img src={img} alt={name} />
-            <h1>{name}</h1>
-            <h3>{category}</h3>
-            <h4>${price}</h4>
+            <div className='textproduct'>
+                <h1 className='margintext'>{name}</h1>
+                <h3 className='margintext'>{category}</h3>
+                <h4 className='margintext'>${price}</h4>
+            </div>
         </div>
     )
 }
