@@ -25,7 +25,7 @@ const Counter = ({ stock, onAdd }) => {
                 <h3 className='CantidadContador'>{count}</h3>
                 <button className='BotonContador' onClick={increment}><img className='IconoContador' src={iconoSumar} alt='sumar' /></button>
             </div>
-            <button className='BotonAgregar' onClick={onAdd}>Agregar</button>
+            <button className='BotonAgregar' onClick={onAdd}>Agregar al carrito</button>
         </section>
     )
 }

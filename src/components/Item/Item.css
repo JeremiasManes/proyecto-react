@@ -3,7 +3,6 @@
     border-color: black;
     border-width: 5px;
     border-style: solid;
-    cursor: pointer;
     color: grey;
 }
 
@@ -26,4 +25,17 @@
 
 .margintext {
     margin: 0;
+}
+
+.buttoncartproduct{
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.buttoncartproduct:hover{
+    transform: scale(1.1);
+    border-radius: 10px;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
 }

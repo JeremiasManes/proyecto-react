@@ -8,6 +8,7 @@ const Item = ({ img, name, category, price }) => {
                 <h1 className='margintext'>{name}</h1>
                 <h3 className='margintext'>{category}</h3>
                 <h4 className='margintext'>${price}</h4>
+                <button className='buttoncartproduct'>Ver Detalle</button>
             </div>
         </div>
     )
