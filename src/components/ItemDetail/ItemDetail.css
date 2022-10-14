@@ -1,8 +1,14 @@
 .CardProductDetail {
-    display: flex;
+    width: 50%;
+    transform: translateY(5rem);
+    display: inline-flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
     align-content: center;
     flex-wrap: wrap;
+    border-radius: 30px;
+    border-color: black;
+    border-width: 4px;
+    border-style: solid;
 }
