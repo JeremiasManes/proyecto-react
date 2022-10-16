@@ -1,4 +1,4 @@
-import Counter from '../Counter/Counter'
+import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
 
 
@@ -15,7 +15,7 @@ const ItemDetail = ({ img, name, price, description, stock }) => {
                 <p>{description}</p>
                 <h4>${price}</h4>
                 <h4>stock disponible: {stock}</h4>
-                <Counter stock={stock} onAdd={handleonAdd} />
+                <ItemCount stock={stock} onAdd={handleonAdd} />
             </div>
         </div>
     )

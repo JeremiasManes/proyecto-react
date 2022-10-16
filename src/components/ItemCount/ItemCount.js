@@ -1,9 +1,9 @@
-import './Counter.css'
+import './ItemCount.css'
 import { useState } from 'react'
 import iconoRestar from './assets/iconorestar.png'
 import iconoSumar from './assets/iconosumar.png'
 
-const Counter = ({ stock, onAdd }) => {
+const ItemCount = ({ stock, onAdd }) => {
     const [count, setCount] = useState(0)
 
     const increment = () => {
@@ -30,4 +30,4 @@ const Counter = ({ stock, onAdd }) => {
     )
 }
 
-export default Counter 
+export default ItemCount 
