@@ -3,18 +3,18 @@ import { useState } from 'react'
 import iconoRestar from './assets/iconorestar.png'
 import iconoSumar from './assets/iconosumar.png'
 
-const Counter = ({ stock, onAdd }) => {
-    const [count, setCount] = useState(0)
+const Counter = ({ stock = 0, initial = 1, onAdd }) => {
+    const [quantity, setQuantity] = useState(initial)
 
     const increment = () => {
-        if (count < stock) {
-            setCount(count + 1)
+        if (quantity < stock) {
+            setQuantity(quantity + 1)
         }
     }
 
     const decrement = () => {
-        if (count > 0) {
-            setCount(count - 1)
+        if (quantity > 1) {
+            setQuantity(quantity - 1)
         }
     }
 
@@ -22,10 +22,10 @@ const Counter = ({ stock, onAdd }) => {
         <section className='SectionContador'>
             <div className='Contador'>
                 <button className='BotonContador' onClick={decrement}><img className='IconoContador' src={iconoRestar} alt='restar' /></button>
-                <h3 className='CantidadContador'>{count}</h3>
+                <h3 className='CantidadContador'>{quantity}</h3>
                 <button className='BotonContador' onClick={increment}><img className='IconoContador' src={iconoSumar} alt='sumar' /></button>
             </div>
-            <button className='BotonAgregar' onClick={onAdd}>Agregar al carrito</button>
+            <button className='BotonAgregar' onClick={() => onAdd(quantity)}>Agregar al carrito</button>
         </section>
     )
 }

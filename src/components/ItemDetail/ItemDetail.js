@@ -2,9 +2,12 @@ import Counter from '../Counter/Counter'
 import './ItemDetail.css'
 
 
-const ItemDetail = ({ img, name, price, description, stock }) => {
-    const handleonAdd = () => {
-        alert("Se agrego al carrito")
+const ItemDetail = ({ id, img, name, price, description, stock }) => {
+    const handleonAdd = (quantity) => {
+        const productToAdd = {
+            id, name, price, quantity
+        }
+        console.log(productToAdd)
     }
 
     return (
