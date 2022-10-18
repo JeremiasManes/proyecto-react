@@ -1,13 +1,18 @@
-import Counter from '../Counter/Counter'
+import React from 'react'
+import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
-
+import { useContext } from 'react'
+import { CartContext } from '../../context/CartContext'
 
 const ItemDetail = ({ id, img, name, price, description, stock }) => {
+    const {addItem} = useContext(CartContext)
+
     const handleonAdd = (quantity) => {
         const productToAdd = {
             id, name, price, quantity
         }
-        console.log(productToAdd)
+        
+        addItem(productToAdd)
     }
 
     return (
@@ -18,7 +23,7 @@ const ItemDetail = ({ id, img, name, price, description, stock }) => {
                 <p>{description}</p>
                 <h4>${price}</h4>
                 <h4>stock disponible: {stock}</h4>
-                <Counter stock={stock} onAdd={handleonAdd} />
+                <ItemCount stock={stock} onAdd={handleonAdd} />
             </div>
         </div>
     )
