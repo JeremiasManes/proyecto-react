@@ -8,6 +8,7 @@
 }
 
 .ContenedorBotonesCart{
+    margin-top: 20px;
     width: 30%;
     display: flex;
     flex-direction: row;
