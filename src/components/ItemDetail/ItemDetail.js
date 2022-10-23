@@ -5,13 +5,13 @@ import { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 
 const ItemDetail = ({ id, img, name, price, description, stock }) => {
-    const {addItem} = useContext(CartContext)
+    const { addItem } = useContext(CartContext)
 
     const handleonAdd = (quantity) => {
         const productToAdd = {
             id, name, price, quantity
         }
-        
+
         addItem(productToAdd)
     }
 

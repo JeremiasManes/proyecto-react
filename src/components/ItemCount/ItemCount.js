@@ -3,7 +3,7 @@ import { useState } from 'react'
 import iconoRestar from './assets/iconorestar.png'
 import iconoSumar from './assets/iconosumar.png'
 
-const ItemCount = ({ stock = 0, initial = 1, onAdd }) => {
+const ItemCount = ({ stock, initial = 1, onAdd }) => {
     const [quantity, setQuantity] = useState(initial)
 
     const increment = () => {
