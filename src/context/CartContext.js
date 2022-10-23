@@ -31,7 +31,14 @@ export const CartProvider = ({ children }) => {
         if (!isInCart(productToAdd.id)) {
             setCart([...cart, productToAdd])
         } else {
-            alert("El producto ya se encuentra en el carrito")
+            setCart(
+                cart.map((prod) => {
+                    return prod.id === productToAdd.id
+                        ? { ...prod, quantity: productToAdd.quantity }
+                        : prod;
+                })
+            );
+            console.log("ya esta en el carrito");
         }
     }
 
