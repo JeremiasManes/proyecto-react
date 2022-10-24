@@ -40,7 +40,7 @@
     text-decoration: none;
 }
 
-.categorias:hover{
+.categorias:hover {
     color: black;
     text-decoration: underline;
     text-underline-offset: 5px;
