@@ -2,7 +2,7 @@ import './ItemListContainer.css'
 import { useState, useEffect } from 'react'
 import ItemList from '../ItemList/ItemList'
 import { useParams } from 'react-router-dom'
-import { getDocs, collection, query, where } from 'firebase/firestore'
+import { getDocs, collection, query, where, orderBy } from 'firebase/firestore'
 import { db } from '../../services/firebase/index'
 import { DotSpinner } from '@uiball/loaders'
 
@@ -16,7 +16,7 @@ const ItemListContainer = () => {
 
         const collectionRef = categoryId
             ? query(collection(db, 'products'), where('category', '==', categoryId))
-            : collection(db, 'products')
+            : query(collection(db, 'products'), orderBy('order'))
         getDocs(collectionRef).then((response) => {
             const productsAdapted = response.docs.map(doc => {
                 const data = doc.data()
