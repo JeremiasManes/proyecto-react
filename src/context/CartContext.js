@@ -20,9 +20,7 @@ export const CartProvider = ({ children }) => {
 
         const totalQty = getQuantity()
         setTotalQuantity(totalQty)
-    }, [cart])
 
-    useEffect(() => {
         const total = getTotal()
         setTotal(total)
     }, [cart])
@@ -38,7 +36,6 @@ export const CartProvider = ({ children }) => {
                         : prod;
                 })
             );
-            console.log("ya esta en el carrito");
         }
     }
 
@@ -65,8 +62,16 @@ export const CartProvider = ({ children }) => {
         return setCart([])
     }
 
+    const getProductQuantity = (id) => {
+        const product = cart.find(prod => prod.id === id)
+
+        if (product) {
+            return product.quantity
+        }
+    }
+
     return (
-        <CartContext.Provider value={{ cart, addItem, removeItem, totalQuantity, total, clearCart, isInCart }}>
+        <CartContext.Provider value={{ cart, addItem, removeItem, totalQuantity, total, clearCart, isInCart, getProductQuantity }}>
             {children}
         </CartContext.Provider>
     )

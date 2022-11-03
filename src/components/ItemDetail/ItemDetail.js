@@ -6,7 +6,7 @@ import { CartContext } from '../../context/CartContext'
 import { Link } from 'react-router-dom'
 
 const ItemDetail = ({ id, img, name, price, description, stock }) => {
-    const { addItem, isInCart } = useContext(CartContext)
+    const { addItem, isInCart, getProductQuantity } = useContext(CartContext)
 
     const handleonAdd = (quantity) => {
         const productToAdd = {
@@ -16,6 +16,8 @@ const ItemDetail = ({ id, img, name, price, description, stock }) => {
         addItem(productToAdd)
     }
 
+    const productQuantity = getProductQuantity(id)
+
     return (
         <div className="CardProductDetail">
             <img src={img} alt={name} />
@@ -24,14 +26,19 @@ const ItemDetail = ({ id, img, name, price, description, stock }) => {
                 <p>{description}</p>
                 <h4>${price}</h4>
                 <h4>stock disponible: {stock}</h4>
-                <div>
-                    {
-                        !isInCart(id)
-                            ? <ItemCount stock={stock} onAdd={handleonAdd} />
-                            : <Link to='/cart'>Ir al carrito</Link>
-                    }
-                    <Link to='/'>Volver al inicio</Link>
-                </div>
+            </div>
+            <div>
+                {
+                    !isInCart(id)
+                        ? <ItemCount stock={stock} initial={productQuantity} onAdd={handleonAdd} />
+                        : <div>
+                            <ItemCount stock={stock} initial={productQuantity} onAdd={handleonAdd} />
+                            <div>
+                                <Link to={'/'}>Volver al inicio</Link>
+                                <Link to={'/cart'}>Ir al carrito</Link>
+                            </div>
+                        </div>
+                }
             </div>
         </div>
     )
