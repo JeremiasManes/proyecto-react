@@ -21,24 +21,13 @@ const ItemDetail = ({ id, img, name, price, description, stock }) => {
     return (
         <div className="CardProductDetail">
             <img src={img} alt={name} />
-            <div>
+            <div className='divCardDetail'>
                 <h1>{name}</h1>
                 <p>{description}</p>
                 <h4>${price}</h4>
                 <h4>stock disponible: {stock}</h4>
-            </div>
-            <div>
-                {
-                    !isInCart(id)
-                        ? <ItemCount stock={stock} initial={productQuantity} onAdd={handleonAdd} />
-                        : <div>
-                            <ItemCount stock={stock} initial={productQuantity} onAdd={handleonAdd} />
-                            <div>
-                                <Link to={'/'}>Volver al inicio</Link>
-                                <Link to={'/cart'}>Ir al carrito</Link>
-                            </div>
-                        </div>
-                }
+                {stock !== 0 ? <ItemCount stock={stock} initial={productQuantity} onAdd={handleonAdd} /> : <h3>No hay stock</h3>}
+                {isInCart(id) && <Link to={'/cart'} className='goCart'>Ir al carrito</Link>}
             </div>
         </div>
     )

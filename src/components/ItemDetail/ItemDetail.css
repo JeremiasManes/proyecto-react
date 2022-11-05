@@ -12,3 +12,27 @@
     border-width: 4px;
     border-style: solid;
 }
+
+.divCardDetail {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.goCart {
+    color: black;
+    text-decoration: none;
+
+}
+
+.goCart:hover {
+    color: black;
+    transform: scale(1.1);
+    border-radius: 5px;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+}

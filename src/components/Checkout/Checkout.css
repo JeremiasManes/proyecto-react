@@ -1,0 +1,59 @@
+.divCheckout {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.titleCheckout {
+    text-decoration: underline;
+}
+
+.divformCheckout {
+    padding: 20px;
+    border-radius: 10px;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.formCheckout {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputForm {
+    border-radius: 5px;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.inputForm:focus {
+    border-radius: 10px;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+}
+
+.buttonCheckout {
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.buttonCheckout:hover {
+    border-radius: 10px;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+}

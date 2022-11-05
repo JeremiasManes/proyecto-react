@@ -6,22 +6,37 @@ import ItemCart from '../ItemCart/ItemCart'
 
 const Cart = () => {
 
-    const { total, clearCart } = useContext(CartContext)
+    const { cart, total, clearCart } = useContext(CartContext)
 
-    return (
-        <div>
-            <h1>Carrito</h1>
-            <div className='DivCart'>
-                <ItemCart />
+    if (cart.length !== 0) {
+        return (
+            <div>
+                <h1 className='titleCart'>Carrito</h1>
+                <div className='DivCart'>
+                    <ItemCart />
+                </div>
+                <div>
+                    <h3>Total: $ {total}</h3>
+                    <button className='ButtonsCart' onClick={() => clearCart()}>Limpiar Carrito</button>
+                </div>
+
+                <div className='DivButtonsCart'>
+                    <Link to={'/'} className='ButtonsCart'>Volver al Inicio</Link>
+                    <Link to={'/checkout'} className='ButtonsCart'>Finalizar Compra</Link>
+                </div>
             </div>
-            <h3>Total: {total}</h3>
-            <div className='DivButtonsCart'>
+        )
+    } else {
+        return (
+            <div>
+                <h1 className='titleCart'>Carrito</h1>
+                <h2>El Carrito se encuentra vacío</h2>
                 <Link to={'/'} className='ButtonsCart'>Volver al Inicio</Link>
-                <Link to={'/checkout'} className='ButtonsCart'>Finalizar Compra</Link>
-                <button onClick={() => clearCart()}>Limpiar Carrito</button>
             </div>
-        </div>
-    )
+        )
+    }
+
+
 }
 
 
