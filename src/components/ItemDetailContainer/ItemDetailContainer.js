@@ -1,25 +1,21 @@
-import { useState, useEffect } from "react"
+import './ItemDetailContainer.css'
 import ItemDetail from "../ItemDetail/ItemDetail"
 import { useParams } from "react-router-dom"
 import { DotSpinner } from '@uiball/loaders'
-import './ItemDetailContainer.css'
 import { getProduct } from "../../services/firestore/product"
+import { useAsync } from '../../hooks/useAsync'
 
 const ItemDetailContainer = () => {
-    const [product, setProduct] = useState()
-    const [loading, setLoading] = useState(true)
 
     const { productId } = useParams()
 
-    useEffect(() => {
-        getProduct(productId).then(product => {
-            setProduct(product)
-        }).catch(error => {
-            console.log(error)
-        }).finally(() => {
-            setLoading(false)
-        })
-    }, [productId])
+    const getProductFromFirestore = () => getProduct(productId)
+
+    const { data: product, error, loading } = useAsync(getProductFromFirestore)
+
+    if (error) {
+        console.log(error)
+    }
 
     if (loading) {
         return (
