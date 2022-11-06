@@ -3,10 +3,15 @@ import { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 import { Link } from 'react-router-dom'
 import ItemCart from '../ItemCart/ItemCart'
+import Swal from 'sweetalert2'
 
 const Cart = () => {
 
     const { cart, total, clearCart } = useContext(CartContext)
+
+    const clickFinalizarCompra = () => {
+        Swal.fire('Asegurate de cargar tus datos correctamente.')
+    }
 
     if (cart.length !== 0) {
         return (
@@ -22,7 +27,7 @@ const Cart = () => {
 
                 <div className='DivButtonsCart'>
                     <Link to={'/'} className='ButtonsCart'>Volver al Inicio</Link>
-                    <Link to={'/checkout'} className='ButtonsCart'>Finalizar Compra</Link>
+                    <Link to={'/checkout'} className='ButtonsCart' onClick={clickFinalizarCompra}>Finalizar Compra</Link>
                 </div>
             </div>
         )

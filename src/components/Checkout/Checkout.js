@@ -5,6 +5,7 @@ import { db } from '../../services/firebase/index'
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import './Checkout.css'
+import Swal from "sweetalert2"
 
 const Checkout = () => {
 
@@ -81,13 +82,16 @@ const Checkout = () => {
 
                 clearCart()
 
+                Swal.fire(
+                    'Orden generada, seras redirigido al inicio.',
+                    `id compra: ${orderAdded.id}`
+                )
+
                 setTimeout(() => {
                     navigate('/')
-                }, 2000)
-
-                console.log(`el id de su orden es: ${orderAdded.id}`)
+                }, 3000)
             } else {
-                console.log('stock no disponible')
+                Swal.fire('Stock no disponible.')
             }
 
         } catch (error) {

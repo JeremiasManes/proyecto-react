@@ -4,6 +4,7 @@ import './ItemDetail.css'
 import { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 import { Link } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 const ItemDetail = ({ id, img, name, price, description, stock }) => {
     const { addItem, isInCart, getProductQuantity } = useContext(CartContext)
@@ -14,6 +15,7 @@ const ItemDetail = ({ id, img, name, price, description, stock }) => {
         }
 
         addItem(productToAdd)
+        Swal.fire('Producto añadido al carrito.')
     }
 
     const productQuantity = getProductQuantity(id)
