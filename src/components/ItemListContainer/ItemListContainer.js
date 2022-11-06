@@ -2,9 +2,8 @@ import './ItemListContainer.css'
 import { useState, useEffect } from 'react'
 import ItemList from '../ItemList/ItemList'
 import { useParams } from 'react-router-dom'
-import { getDocs, collection, query, where, orderBy } from 'firebase/firestore'
-import { db } from '../../services/firebase/index'
 import { DotSpinner } from '@uiball/loaders'
+import { getProducts } from '../../services/firestore/products'
 
 const ItemListContainer = () => {
     const [products, setProducts] = useState([])
@@ -14,20 +13,16 @@ const ItemListContainer = () => {
 
     useEffect(() => {
 
-        const collectionRef = categoryId
-            ? query(collection(db, 'products'), where('category', '==', categoryId))
-            : query(collection(db, 'products'), orderBy('order'))
-        getDocs(collectionRef).then((response) => {
-            const productsAdapted = response.docs.map(doc => {
-                const data = doc.data()
-
-                return { id: doc.id, ...data }
-            })
-            setProducts(productsAdapted)
+        getProducts(categoryId).then(products => {
+            setProducts(products)
+        }).catch(error => {
+            console.log(error)
         }).finally(() => {
             setLoading(false)
         })
     }, [categoryId])
+
+
 
     if (loading) {
         return (
